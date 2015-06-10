@@ -1,0 +1,50 @@
+procedure TShell.PopupMenu1Popup(Sender: TObject);
+var
+ i, c: Word;
+ M   : TMenuItem;
+ B   : TBitmap;
+begin
+Ini:=TIniFile.Create(ExtractFilePAth(GetModuleFileNameStr(Hinstance))+'Shell.ini');
+ExeName:=Ini.ReadString('Main', 'ExeName', 'WinMZF.exe');
+c:=Ini.ReadInteger('Main', 'Count', 0);
+PopupMenu1.Items.Clear;
+ImageList.Clear;
+ if not Test then Exit;
+M:=TMenuItem.Create(PopupMenu1);
+M.Caption:=Ini.ReadString('Main', 'Name', 'WinMZF');
+PopupMenu1.Items.Add(M);
+ if Ini.ReadString('Main', 'Images', '')<>'' then
+   begin
+   B:=TBitmap.Create;
+   B.LoadFromFile(ExtractFilePAth(GetModuleFileNameStr(Hinstance))+Ini.ReadString('Main', 'Images', ''));
+   ImageList.AddMasked(B, clFuchsia);
+   B.Free;
+   end;
+ for i:=1 to c do
+   begin
+   M:=TMenuItem.Create(PopupMenu1);
+   M.Caption:=Ini.ReadString('Item'+IntTostr(i), 'Caption', '');
+   M.Hint:=Ini.ReadString('Item'+IntTostr(i), 'Action', '');
+   M.ImageIndex:=Ini.ReadInteger('Item'+IntTostr(i), 'Index', -1);
+   M.OnClick:=MenuClick;
+   PopupMenu1.Items[0].Add(M);
+   end;
+end;
+
+
+procedure TShell.MenuClick(Sender: TObject);
+var
+ P1: PChar;
+begin
+p1:=PChar(TMenuItem(Sender).Hint);
+ShellExecute(0, 'open', PChar(ExtractFilePAth(GetModuleFileNameStr(Hinstance))+ExeName), PChar(p1+ ' ' +(SxContextMenu1.Files.GetText)), nil, SW_NORMAL);
+end;
+
+function GetModuleFileNameStr(Instance: THandle): string;
+var
+  buffer: array [0..MAX_PATH] of Char;
+begin
+  GetModuleFileName( Instance, buffer, MAX_PATH);
+  Result := buffer;
+end;
+

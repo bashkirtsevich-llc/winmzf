@@ -1,0 +1,59 @@
+unit MAD7_u;
+
+interface
+
+Uses Classes;
+
+  Procedure MAD7_EncodeStream(InStream,OutStream:TStream;Password:String);
+  Procedure MAD7_DecodeStream(InStream,OutStream:TStream;Password:String);
+
+implementation
+
+Procedure MAD7_EncodeStream(InStream,OutStream:TStream;Password:String);
+Var Temp:Word;
+    PassPos:byte;
+    ReadCount:byte;
+Begin
+  InStream.Position:=0;
+  OutStream.Position:=0;
+
+  PassPos:=$01;
+  while InStream.Position<>InStream.Size do
+    begin
+      ReadCount:=InStream.Read(Temp,2);
+      Temp:=(Temp + (((Ord(Password[PassPos]))*((Ord(Password[PassPos])-$FF)-Length(Password)-PassPos))));
+      Inc(PassPos);
+      if Passpos>Length(Password) then
+        passpos:=$01;
+      OutStream.Write(temp,readcount);
+    end;
+
+  InStream.Position:=0;
+  OutStream.Position:=0;
+End;
+
+Procedure MAD7_DecodeStream(InStream,OutStream:TStream;Password:String);
+Var Temp:Word;
+    PassPos:byte;
+    ReadCount:byte;
+Begin
+  InStream.Position:=0;
+  OutStream.Position:=0;
+
+  PassPos:=$01;
+  while InStream.Position<>InStream.Size do
+    begin
+      ReadCount:=InStream.Read(Temp,2);
+      Temp:=(Temp - (((Ord(Password[PassPos]))*((Ord(Password[PassPos])-$FF)-Length(Password)-PassPos))));
+      Inc(PassPos);
+      if passpos>length(Password) then
+        PassPos:=$01;
+      OutStream.Write(Temp,ReadCount);
+    end;
+
+  InStream.Position:=0;
+  OutStream.Position:=0;
+End;
+
+end.
+ 

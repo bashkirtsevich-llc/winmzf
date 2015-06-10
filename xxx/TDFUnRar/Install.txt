@@ -1,0 +1,55 @@
+DF UnRar
+========
+
+Release 1.0, 04.03.2003
+getestet unter Windows XP
+
+Über dieses Programm können Sie:
+- RAR-Archive entpacken
+- den Inhalt betrachten
+- Passwortunterstützung
+- Unterstützung von aufgeteilten Archiven
+- Fortschrittsanzeige und Entpacken stoppen
+- anzeige sämtlicher Eigenschaften der Dateien im Archiv
+- durch Klick auf die Spaltenüberschriften kann die Sortierrichtung geändert 
+  werden.
+
+Die mitgelieferte Delphi-Komponente ist ein Wrapper für die UnRar-Dll, die
+unter http://www.rarlab.com kostenlos zur Verfügung gestellt wird. Hinweise
+zur Nutzung finden Sie in der Readme.txt und im Quellcode :-).
+untUnRar.pas - Funktionsdefinitionen, Strukturen und Konstanten der UnRar.dll
+UnRar.pas    - die Komponente
+
+Das Programm DF UnRAR basisert auf dieser Komponente und stellt somit eine
+kleine Beispielanwendung zu deren Nutzung dar. Sie kann natürlich auch
+von nicht Delphianern genutzt werden.
+
+!! Sie erhalten sämtliche Quellen für die Delphi-Komponente und das 
+   Programm DF UnRar. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+Verwendung des Programms
+========================
+- DATEI - ÖFFNEN - Rar-Archiv öffnen
+- Wird ein Passwort benötigt, wird ein Dialogfenster angezeigt.
+  Geben Sie ein falsches Passwort ein, werden keine Dateien in der Liste 
+  angezeigt. Im Status-Dialog wird ein Fehler angezeigt.
+- Kann die UnRar.dll bei aufgeteilten Archiven nicht das nächste Volumn finden
+  wird ebenfalls ein Dialogfenster angezeigt.
+- BEARBEITEN - ENTPACKEN - vollst. Archivinhalt entpacken
+  oder
+  Dateien in der Liste mit gedrückter Strg-Taste markieren.
+  Ist die Datei schon vorhanden, wird ein Dialogfenster geöffnet.
+- BEARBEITEN - STATUSINFO - Anzeige von Informationen/Fehlern
+- BEARBEITEN - ARCHIVINFO - Anzeige des Archivkommentars und der gesamten
+  Dateigrößen gepackt/ungepackt
+
+
+Manuelle Installation der Delphi-Komponente
+===========================================
+
+1. Kopieren Sie die Dateien UnRar.pas und untUnRar.pas in das $(DELPHI)\lib-
+   Verzeichnis oder ein Verzeichnis Ihrer Wahl.
+2. Menüpunkt KOMPONENTE - KOMPONENTE INSTALLIEREN wählen und die Datei
+   UnRar.pas auswählen
+3. Die neue Komponente befindet sich im Register Frischa.

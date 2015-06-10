@@ -1,0 +1,13 @@
+var
+  key, text, longkey, result: string;
+  i: integer;
+  toto, c: char;
+begin
+  for i := 0 to (length(text) div length(key)) do
+    longkey := longkey + key;
+  for i := 1 to length(text) do
+  begin
+    toto := chr((ord(text[i]) xor ord(longkey[i]))); // XOR אכדמנטעל
+    result := result + toto;
+  end;
+end;

@@ -1,0 +1,37 @@
+Test T_XTS for all compilers (not BPW, D1) 
+ 
+Results for bpc -b 
+ 
+Results for bpc -CP -b 
+ 
+Results for fpc -B -TGO32V2 
+ 
+Results for fpc -B 
+ 
+Results for call fpc22 -B 
+ 
+Results for vpc -b 
+ 
+Results for D:\DMX\TP5\TPC.EXE -b 
+ 
+Results for D:\DMX\TP55\TPC.EXE -b 
+ 
+Results for D:\DMX\TP6\TPC.EXE -b 
+ 
+Results for D:\DMX\M2\DCC32.EXE -b 
+ 
+Results for D:\DMX\M3\DCC32.EXE -b 
+ 
+Results for D:\DMX\M4\DCC32.EXE -b 
+ 
+Results for D:\DMX\M5\DCC32.EXE -b 
+ 
+Results for D:\DMX\M6\DCC32.EXE -b 
+ 
+Results for D:\DMX\M7\DCC32.EXE -b 
+ 
+Results for D:\DMX\M9\DCC32.EXE -b 
+ 
+Results for WDOSX 
+ 
+Results for D:\DMX\M10\DCC32.EXE -b 

@@ -1,0 +1,128 @@
+unit IconModifyUnit;
+
+interface
+
+uses Windows, SysUtils, Classes;
+
+type
+ TIconModifier = Class(TComponent)
+ private
+   FSourceFile : String;
+   FDestFile   : String;
+   procedure SetSourceFile(AFile: String);
+   procedure SetDestFile(AFile: String);
+   function  ModifyIconForNt(SourceIndex, DestIndex: Cardinal = 1): Boolean;
+   function  ModifyIconFor9x(SourceIndex, DestIndex: Cardinal = 1): Boolean;
+ public
+   property  SourceFile: String Read FSourceFile Write SetSourceFile;
+   property  DestFile  : String Read FDestFile Write SetDestFile;
+   function ModifyIcon(SourceIndex, DestIndex: Cardinal = 1): Boolean;
+ end;
+
+implementation
+
+
+procedure TIconModifier.SetSourceFile(AFile: String);
+begin
+ FSourceFile := AFile;
+end;
+
+procedure TIconModifier.SetDestFile(AFile: String);
+begin
+ FDestFile := AFile;
+end;
+
+function TIconModifier.ModifyIconForNt(SourceIndex, DestIndex: Cardinal = 1): Boolean;
+var
+ hModule  : Cardinal;
+ hResFind : Cardinal;
+ hResLoad : Cardinal;
+ pResLock : PChar;
+ hResUpdate: Cardinal;
+begin
+ Result := false;
+
+ hModule := LoadLibrary(PChar(FSourceFile));
+ if hModule = 0 then
+   Exit;
+
+ try
+   hResFind := FindResource(hModule, MakeIntResource(SourceIndex+1), RT_ICON);
+   if hResFind = 0 then
+     Exit;
+
+   hResLoad := LoadResource(hModule, hResFind);
+   if hResLoad = 0 then
+     Exit;
+
+   pResLock := LockResource(hResLoad);
+   if pResLock = nil then
+     Exit;
+
+   hResUpdate := BeginUpdateResource(PChar(FDestFile), false);
+   if hResUpdate = 0 then
+     Exit;
+
+   if not UpdateResource(hResUpdate,
+                         RT_ICON,
+                         MakeIntResource(DestIndex + 1), 
+                         0, //local language
+                         pResLock,
+                         SizeofResource(hModule, hResFind)) then
+     Exit;
+
+   if not EndUpdateResource(hResUpdate, false) then
+     Exit;
+ finally
+   FreeLibrary(hModule);
+ end;
+ Result := true;
+end;
+
+function TIconModifier.ModifyIconFor9x(SourceIndex, DestIndex: Cardinal = 1): Boolean;
+begin
+ Result := false;
+end;
+
+function TIconModifier.ModifyIcon(SourceIndex, DestIndex: Cardinal = 1): Boolean;
+begin
+ Result := false;
+ if Win32PlatForm = VER_PLATFORM_WIN32_NT then
+   Result := ModifyIconForNt(SourceIndex, DestIndex)
+ else
+   Result := ModifyIconFor9x(SourceIndex, DestIndex);  
+end;
+end.
+
+
+
+example 
+
+use IconModifyUnit;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+ im : TIconModifier;
+ source, dest: String;
+begin
+ if OpenDialog1.Execute then
+   source := OpenDialog1.FileName
+ else
+   Exit;
+
+ if OpenDialog2.Execute then
+   dest := OpenDialog2.FileName
+ else
+   Exit;
+
+
+ im := TIconModifier.Create(Self);
+ im.SourceFile := source; //a file includes source icon(s),  exe or dll format.
+ im.DestFile := dest; //file includes icon which will be modified. exe or dll.
+ if im.ModifyIcon(1) then
+   MessageBox(Handle,'successful.', 'info', MB_OK + MB_ICONINFORMATION)
+ else
+   MessageBox(Handle,'fail.', 'info', MB_OK + MB_ICONINFORMATION);
+ im.Free;
+ 
+end.

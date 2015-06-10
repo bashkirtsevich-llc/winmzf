@@ -1,0 +1,13 @@
+program MZF;
+
+uses
+  Forms, 
+  Main_u in 'Main_u.pas' {dlgExtract};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TdlgExtract, dlgExtract);
+  Application.Run;
+end.

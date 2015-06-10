@@ -1,0 +1,91 @@
+package ZTV70RT;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS OFF}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'ZipTV Compression Components - Runtime Package'}
+{$RUNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  designide,
+  vcl;
+
+contains
+   err_msgs,
+   ztvarchiveeditor,
+   ztvarchivesplitter,
+   ztvzipsplitter,
+   ztvarc2arc,
+   ztvbase,
+   ztvblakhole,
+   ztvcabgbls,
+   ztvcrypt,
+   ztvdeflate,
+   ztvdelzw,
+   ztvfileio,
+   ztvfilescan,
+   ztvfindfile,
+   ztvgbls,
+   ztvgzip,
+   ztvheaders,
+   ztvjar,
+   ztvlha,
+   ztvlhapack,
+   ztvloadlib,
+   ztvlzh3,
+   ztvlzh5,
+   ztvinflate,
+   ztvgzinflate,
+   ztvmakecab,
+   ztvmakesfx,
+   ztvregarchive,
+   ztvregister,
+   ztvsearchengine,
+   ztvstreams,
+   ztvtar,
+   ztvturbosearch,
+   ztvunace2,
+   ztvunarc,
+   ztvunarj,
+   ztvunbh,
+   ztvuncab,
+   ztvuncabtypes,
+   ztvungzip,
+   ztvunjar,
+   ztvunlha,
+   ztvunrar,
+   ztvunsfx,
+   ztvuntar,
+   ztvunzip,
+   ztvunzoo,
+   ztvuudecode,
+   ztvuuencode,
+   ztvzip,
+   ztvzipcheck,
+   ztvzipkey,
+   ztvziprun,
+   ztvzipsearch,
+   ztvziptv,
+   ztvzipview;
+
+end.

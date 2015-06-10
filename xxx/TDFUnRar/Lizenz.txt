@@ -1,0 +1,60 @@
+Lizenzbedingungen
+
+Version 1.0
+
+Freeware (für nicht kommerzielle und kommerzielle Nutzung)
+Freeware: Free for non-commercial and commercial use
+----------------------------------------------------------
+Die hier angebotene Software ist "Freeware". Der Autor legt fest,
+dass die vorliegende Software und deren Dokumentation frei verwendet und
+weitergegeben werden dürfen, solange dafür kein Entgelt verlangt wird.
+Veröffentlichungen in Medien, für die unter irgendeinem Titel ein
+Entgelt verlangt wird (beispielsweise Bücher, Zeitschriften, CDs
+und kostenpflichtige Websites), bedürfen der schriftlichen Zustimmung
+des Autors. Die Rechte am Quellcode des Programms und der Delphi-Komponente
+verbleiben beim Autor.
+
+Garantie- und Haftungsausschluß
+Es ist nach heutigem Stand der Technik nicht möglich, Software zu
+produzieren, die unter allen Randbedingungen oder auch nur ein einer
+einzigen Konfiguration garantiert fehlerfrei läuft. Jeder Gewährleistungs-
+oder Garantieanspruch gegenüber dem Autor oder dem Lieferanten sind
+ausgeschlossen, seien sie ausdrücklich, stillschweigend miteingeschlossen
+oder im Rahmen gegenseitiger Mitteilungen gegeben. Insbesondere ist eine
+stillschweigend miteingeschlossene Garantie durchschnittlicher Qualität
+oder Eignung für einen bestimmten Zweck ausgeschlossen.
+Unter keinen Umständen haften der Autor oder der Lieferant der Programme
+für irgendwelche Schäden, einschließlich Datenverlust, entgangenem Gewinn,
+Deckungsbeiträgen oder anderen Neben-, Folge- oder indirekten Schäden,
+die sich aus der Benutzung der Software bzw. der beiliegenden Dokumentation
+ergeben können, und zwar ungeachtet der Schadensursache oder der Grundlage
+des Haftungsanspruchs. Diese Beschränkung gilt sogar dann, wenn der Autor
+oder der Lieferant der Programme auf die Möglichkeit eines solchen Schadens
+hingewiesen worden sind.
+
+============================================================================
+
+Garantie- und Haftungsausschluß / Lizenz der UnRar.dll 
+(siehe UnRARDLL.exe unter http://www.rarlab.com) 
+
+>>>>> from license.txt <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+      The unrar.dll library is freeware. This means:
+
+   1. All copyrights to RAR and the unrar.dll are exclusively
+      owned by the author - Eugene Roshal.
+
+   2. The unrar.dll library may be used in any software to handle RAR
+      archives without limitations free of charge.
+
+   3. THE RAR ARCHIVER AND THE UNRAR.DLL LIBRARY ARE DISTRIBUTED "AS IS".
+      NO WARRANTY OF ANY KIND IS EXPRESSED OR IMPLIED.  YOU USE AT
+      YOUR OWN RISK. THE AUTHOR WILL NOT BE LIABLE FOR DATA LOSS,
+      DAMAGES, LOSS OF PROFITS OR ANY OTHER KIND OF LOSS WHILE USING
+      OR MISUSING THIS SOFTWARE.
+
+      Thank you for your interest in RAR and unrar.dll.
+
+
+                                            Eugene Roshal
+>>>>> from license.txt <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<

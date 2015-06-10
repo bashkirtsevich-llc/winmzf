@@ -1,0 +1,372 @@
+Content-Type: multipart/related; start=<op.mhtml.1208627919023.228bc6476c1cf508@89.20.114.132>; boundary=----------EGTpnrSy12d6SWxMX9Mroa
+Content-Location: http://www.sql.ru/faq/faq_topic.aspx?fid=690
+Subject: =?utf-8?Q?FAQ=20/=20Delphi=20/=20=D0=9A=D0=B0=D0=BA=20=D0=BF=D0=B5=D1=80=D0=B5=D0=B7=D0=B0=D0=B3=D1=80=D1=83=D0=B7=D0=B8=D1=82=D1=8C=20=D0=B8=D0=BB=D0=B8=20=D0=B2=D1=8B=D0=BA=D0=BB=D1=8E=D1=87=D0=B8=D1=82=D1=8C=20=D0=BA=D0=BE=D0=BC=D0=BF=D1=8C=D1=8E=D1=82=D0=B5=D1=80=20=D1=81=20=D0=BF=D0=BE=D0=BC=D0=BE=D1=89=D0=B8=20=D1=84=D1=83=D0=BD=D0=BA=D1=86=D0=B8=D0=B8=20ExitWindows=3F=20[SQL.Ru]?=
+MIME-Version: 1.0
+
+------------EGTpnrSy12d6SWxMX9Mroa
+Content-Disposition: inline; filename=faq_topic.htm
+Content-Type: text/html; name=faq_topic.htm
+Content-Id: <op.mhtml.1208627919023.228bc6476c1cf508@89.20.114.132>
+Content-Location: http://www.sql.ru/faq/faq_topic.aspx?fid=690
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+  <!--afmeta--> 
+<title>FAQ / Delphi / Как перезагрузить или выключить компьютер с помощи функции ExitWindows? [SQL.Ru]</title>
+<link href="/sqlru/main.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0" rightmargin="0">
+<table bgcolor="#6699CC" width="100%" height="90" border="0" cellpadding="3" cellspacing="0" style="border-bottom : solid 1px #000000">
+<tr height="65">
+  <td>&nbsp;<img src="/images/sql.gif" alt="SQL.RU"><BR><span style="font: 9px verdana; color: #eeeeff">&nbsp;&nbsp;&nbsp;&nbsp;Все про SQL и базы данных</span></td>
+</tr>
+<tr bgcolor="#006699" height="14">
+  <td class="menu"><a class="link" href="/index.shtml">&nbsp;Главная&nbsp;</a>|<a class="link" href="/articles/">&nbsp;Статьи&nbsp;</a>|<a class="link" href="/forum/">&nbsp;Форум&nbsp;</a>|<a class="link" href="/books/books.aspx">&nbsp;Книги&nbsp;</a>|<a class="link" href="/subscribe">&nbsp;Рассылка&nbsp;</a>|<a class="link" href="/forum/actualtopics.aspx?bid=9">&nbsp;Работа&nbsp;</a>|<a class="link" href="/search">&nbsp;Поиск&nbsp;</a>|<a class="link" href="/faq">&nbsp;FAQ&nbsp;</a>|</td>
+</tr>
+</table>
+
+<TABLE BORDER=0 WIDTH=100%>
+<TR>
+ <TD VALIGN=TOP style="font: 11px verdana" width=140>
+<table border=0 width=100% STYLE="font: 11px verdana">
+
+<tr>
+<!--begin case_iscat_unsel--><td><A HREF="faq.aspx?id=1">Microsoft SQL Server</A><!--end case_iscat_unsel-->
+</td><td><FONT COLOR=#999999></FONT></TR>
+
+<tr>
+<!--begin case_iscat_unsel--><td><A HREF="faq.aspx?id=10000">Oracle</A><!--end case_iscat_unsel-->
+</td><td><FONT COLOR=#999999></FONT></TR>
+
+<tr>
+<!--begin case_iscat_unsel--><td><A HREF="faq.aspx?id=15000">.NET Framework</A><!--end case_iscat_unsel-->
+</td><td><FONT COLOR=#999999></FONT></TR>
+
+<tr>
+<!--begin case_iscat_unsel--><td><A HREF="faq.aspx?id=20000">MySql</A><!--end case_iscat_unsel-->
+</td><td><FONT COLOR=#999999></FONT></TR>
+
+<tr>
+<!--begin case_iscat_unsel--><td><A HREF="faq.aspx?id=25000">Работа</A><!--end case_iscat_unsel-->
+</td><td><FONT COLOR=#999999></FONT></TR>
+
+<tr>
+<!--begin case_iscat_unsel--><td><A HREF="faq.aspx?id=30000">MS Access</A><!--end case_iscat_unsel-->
+</td><td><FONT COLOR=#999999></FONT></TR>
+
+<tr>
+<!--begin case_iscat_unsel--><td><A HREF="faq.aspx?id=40000">Visual Fox Pro</A><!--end case_iscat_unsel-->
+</td><td><FONT COLOR=#999999></FONT></TR>
+
+<tr><!--begin case_iscat_sel--><td style="background-color : #FFE9C4; padding: 2px; border : 1px solid #BBBBBB; text-decoration : none">
+Delphi
+<!--end case_iscat_sel-->
+
+</td><td><FONT COLOR=#999999></FONT></TR>
+
+<tr>
+<!--begin case_iscat_unsel--><td><A HREF="faq.aspx?id=60000">Sybase</A><!--end case_iscat_unsel-->
+</td><td><FONT COLOR=#999999></FONT></TR>
+
+<tr>
+<!--begin case_iscat_unsel--><td><A HREF="faq.aspx?id=70000">PowerBuilder</A><!--end case_iscat_unsel-->
+</td><td><FONT COLOR=#999999></FONT></TR>
+
+<tr>
+<!--begin case_iscat_unsel--><td><A HREF="faq.aspx?id=80000">InterBase, Firebird, Yaffil</A><!--end case_iscat_unsel-->
+</td><td><FONT COLOR=#999999></FONT></TR>
+
+<tr>
+<!--begin case_iscat_unsel--><td><A HREF="faq.aspx?id=90000">Форум</A><!--end case_iscat_unsel-->
+</td><td><FONT COLOR=#999999></FONT></TR>
+
+<tr>
+<!--begin case_iscat_unsel--><td><A HREF="faq.aspx?id=100000">Java</A><!--end case_iscat_unsel-->
+</td><td><FONT COLOR=#999999></FONT></TR>
+
+<tr>
+<!--begin case_iscat_unsel--><td><A HREF="faq.aspx?id=105000">Microsoft&nbsp;Office</A><!--end case_iscat_unsel-->
+</td><td><FONT COLOR=#999999></FONT></TR>
+
+<tr>
+<!--begin case_iscat_unsel--><td><A HREF="faq.aspx?id=110000">PHP&nbsp;,&nbsp;Perl</A><!--end case_iscat_unsel-->
+</td><td><FONT COLOR=#999999></FONT></TR>
+
+<tr>
+<!--begin case_iscat_unsel--><td><A HREF="faq.aspx?id=115000">Informix</A><!--end case_iscat_unsel-->
+</td><td><FONT COLOR=#999999></FONT></TR>
+
+<tr>
+<!--begin case_iscat_unsel--><td><A HREF="faq.aspx?id=120000">Проектирование</A><!--end case_iscat_unsel-->
+</td><td><FONT COLOR=#999999></FONT></TR>
+
+<tr><td colspan=2><img src="/images/blank.gif" height=0 width=140></td></tr>
+</table>
+
+
+</TD><TD VALIGN=top style="border-left: dotted 1px black; border-right: dotted 1px black;" WIDTH=*>
+
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=1 BGCOLOR=#EFEFEF WIDTH=100%>
+<TR BGCOLOR=#DDDDDD STYLE="font: 11px verdana"><TD style="padding:10px"><B><A HREF="faq.aspx?id=50000">Delphi</A><BR><img src="/images/blank.gif" height=1 width=25><img src="/images/lvl.gif" height=10 width=10><A HREF="faq.aspx?id=577">Общие вопросы</A><BR><img src="/images/blank.gif" height=1 width=50><img src="/images/lvl.gif" height=10 width=10><A HREF="faq_topic.aspx?fid=690">Как перезагрузить или выключить компьютер с помощи функции ExitWindows?</A></B></TD></TR>
+
+<!--begin faqlist-->
+<TR>
+<TD><TABLE BORDER=0 WIDTH=100%><TR><TD VALIGN=top><IMG SRC="/images/blank.gif" height=1 width={faq.level}></TD>
+<TD ALIGN=LEFT>
+<TABLE CELLSPACING=0 CELLPADDING=5 STYLE="font: 12px Verdana">
+<TR HEIGHT=3 BGCOLOR=#0099cc><TD></TD></TR>
+<TR><TD STYLE="border-left : 1px solid #aaaaaa;border-right : 1px solid #aaaaaa">
+Автор: Ramin<BR>
+Прислал: Ramin<BR><BR>
+<TR HEIGHT=1 BGCOLOR=#0099cc><TD></TD></TR>
+</TD></TR><TR><TD>
+<PRE CLASS="src"><font color=blue>function</font> MyExitWindows(RebootParam: Longword): Boolean;  
+<FONT COLOR=magenta>var</FONT>  
+  TTokenHd: THandle;  
+  TTokenPvg: TTokenPrivileges;  
+  cbtpPrevious: DWORD;  
+  rTTokenPvg: TTokenPrivileges;  
+  pcbtpPreviousRequired: DWORD;  
+  tpResult: Boolean;  
+const  
+  SE_SHUTDOWN_NAME = <FONT COLOR=red>'SeShutdownPrivilege'</FONT>;  
+<font color=blue>begin</font>  
+  <font color=blue>if</font> Win32Platform = VER_PLATFORM_WIN32_NT <font color=blue>then</font>  
+  <font color=blue>begin</font>  
+    tpResult := OpenProcessToken(GetCurrentProcess(),  
+      TOKEN_ADJUST_PRIVILEGES <font color=#777777>or</font> TOKEN_QUERY,  
+      TTokenHd);  
+    <font color=blue>if</font> tpResult <font color=blue>then</font>  
+    <font color=blue>begin</font>  
+      tpResult := LookupPrivilegeValue(nil,  
+                                       SE_SHUTDOWN_NAME,  
+                                       TTokenPvg.<font color=blue>Privileges</font>[<FONT COLOR=darkblue><b>0</b></FONT>].Luid);  
+      TTokenPvg.PrivilegeCount := <FONT COLOR=darkblue><b>1</b></FONT>;  
+      TTokenPvg.<font color=blue>Privileges</font>[<FONT COLOR=darkblue><b>0</b></FONT>].Attributes := SE_PRIVILEGE_ENABLED;  
+      cbtpPrevious := SizeOf(rTTokenPvg);  
+      pcbtpPreviousRequired := <FONT COLOR=darkblue><b>0</b></FONT>;  
+      <font color=blue>if</font> tpResult <font color=blue>then</font>  
+        Windows.AdjustTokenPrivileges(TTokenHd,  
+                                      <font color=blue>False</font>,  
+                                      TTokenPvg,  
+                                      cbtpPrevious, 
+                                      rTTokenPvg, 
+                                      pcbtpPreviousRequired); 
+    <font color=blue>end</font>; 
+  <font color=blue>end</font>; 
+  Result := ExitWindowsEx(RebootParam, <FONT COLOR=darkblue><b>0</b></FONT>);
+<font color=blue>end</font>; 
+
+//Выключение
+<font color=blue>procedure</font> TForm1.Button18Click(Sender: TObject);
+<font color=blue>begin</font>
+ MyExitWindows(EWX_POWEROFF <font color=#777777>or</font> EWX_FORCE);
+<font color=blue>end</font>;
+
+//Перезагрузка
+<font color=blue>procedure</font> TForm1.Button19Click(Sender: TObject);
+<font color=blue>begin</font>
+  MyExitWindows(EWX_REBOOT <font color=#777777>or</font> EWX_FORCE); 
+<font color=blue>end</font>;</PRE>
+</TD></TR></TABLE>
+
+</TD></TR></TABLE></TD></TR>
+
+<!--end faqlist-->
+
+<TR><TD colspan=2>
+<TABLE CELLPADDING=5 CELLSPACING=0 WIDTH=100%><TR HEIGHT=5 BGCOLOR=#CCCCCC><TD><SPAN STYLE="font: bold 11px">Отзывы и оценки</SPAN></TD></TR><TR><TD BGCOLOR=#EEEEEE>
+
+
+
+<BR>
+<TABLE BORDER=0 WIDTH=90%><TR><TD ALIGN=CENTER>
+
+<TABLE BORDER=0 WIDTH=80% BGCOLOR=#000000 CELLPADDING=1 CELLSPACING=0><TR><TD>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=5 BGCOLOR=#EEEEEE STYLE="font: 12px Verdana,Arial" WIDTH=100%>
+<TR><TD WIDTH=60% BGCOLOR=#AAAAAA class="postslisttitle" STYLE="font-weight:normal"><FONT COLOR=WHITE><B></b></FONT></TD></TR>
+<TR BGCOLOR=#EEEEEE><TD><BR>Необходимо войти на сайт, чтобы оставлять комментарии</BR></BR></TD></TR></TABLE></TD></TR></TABLE>
+</TD></TR></TABLE><BR>
+
+
+
+</TD></TR>
+<TR HEIGHT=5 BGCOLOR=#CCCCCC><TD></TD></TR></TABLE>
+</TD></TR>
+
+
+<TR BGCOLOR=#DDDDDD STYLE="font: 11px verdana"><TD style="padding:10px">Раздел FAQ: <B>Delphi / Общие вопросы / Как перезагрузить или выключить компьютер с помощи функции ExitWindows?</b></TD>
+<TD align=LEFT></TD></TR>
+</TD></TR></TABLE></TD></TR></TABLE>
+
+</td>
+</tr>
+</table><table border="0" cellpadding="0" cellspacing="0"  bgcolor="#6699CC" width="100%" style="font: 9px verdana; color : white">
+<tr height="1" bgcolor="#006699"><td></td></tr>
+<tr height="20"><td>
+<!--begin of Rambler's Top100 code -->
+<a href="http://top100.rambler.ru/top100/">
+<img src="http://counter.rambler.ru/top100.cnt?236431" alt="" width=1 height=1 border=0></a>
+<!--end of Top100 code-->
+<!--begin of Top100 logo-->
+<a href="http://top100.rambler.ru/top100/">
+<img src="http://top100-images.rambler.ru/top100/banner-88x31-rambler-gray2.gif" alt="Rambler's Top100" width=88 height=31 border=0></a>
+<!--end of Top100 logo -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-265508-1";
+urchinTracker();
+</script>&nbsp;Политика сайта</td></tr>
+<tr height="1" bgcolor="#000000"><td></td></tr>
+</table>
+</body>
+</html>
+
+
+------------EGTpnrSy12d6SWxMX9Mroa
+Content-Disposition: inline; filename=main.css
+Content-Type: text/css; name=main.css
+Content-Location: http://www.sql.ru/sqlru/main.css
+Content-Transfer-Encoding: 8bit
+
+.menu {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: white;
+	background-color: #006699;
+	/*#F1E978;*/
+}
+a.link:link {
+	border: 1px solid #006699;
+	background-color: #006699;
+	text-decoration: none;
+	color: white;
+	padding: 3px;
+}
+a.link:visited {
+	border: 1px solid #006699;
+	background-color: #006699;
+	text-decoration: none;
+	color: white;
+	padding: 3px;
+}
+a.link:hover {
+	background-color: #C3DFED;
+	border: 1px solid #9FC0E1;
+	text-decoration: none;
+	color: #000000;
+}
+a.link1 {
+	font : bold 11px Verdana;
+	text-decoration: none;
+	color : black;
+}
+a.link1:hover {
+	color : blue;
+}
+P           { 
+              font-family: Arial; 
+              font-size : 10pt 
+            }
+Table      { 
+              font-family: Verdana; 
+              font-size : 10pt 
+            }
+
+------------EGTpnrSy12d6SWxMX9Mroa
+Content-Disposition: inline; filename=sql.gif
+Content-Type: image/gif; name=sql.gif
+Content-Location: http://www.sql.ru/images/sql.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhWgAlALMAALnU532p026ezsDZ6nWk0c/k77HO5ZO526LE4Mje7Iy02KrJ
+4oSu1pu+3dfp8WaZzCH5BAAAAAAALAAAAABaACUAAAT/8MlJq7046827/2AohsyS
+OE5hHBiBDKjKWE1tExpj7w2DV7wGgRDUCAyoZHIgACqVCwrj6dgAqEpAUzJ9PhpP
+gOaKRUUn4LKjMVE8CxuY2nF+uJVwxNOQOcxRE11qBVtpSWIafyiFYQ9kSWwYJ0py
+ShOTS1QzD0hKCBoBig6bnUmfBU8KGKFKfI+AD6xJCY5Pka9rOZqVKJu4bJoYhiiq
+uBJ6nrVKkcEZww5iz5uagkkZyEkzvHDKkA+8DqoCVAEa2Ch85w7l408Bd0ncF7gz
+jQ/BwdWwGb/dsPpVniGaZ+sBg4MHyxGgMoThAz9KaGnAhIIFxQESIM56sOBJHQu4
+/xywsADQIBUJAjdoWggFZaN+GEI6+OSE0hd7pVDQXEUFAcVwEnLOfIBKiSphZT4+
+UJdujwRwkTDAU4Pxqa12Ssq1KErlYz+YzZBSbbDl3pODJzVopBL1p8UnLFgq+YGh
+I1WtD+QmIbDWgUS1an7gO2vSy5g/BX6UTMmBAddlsagIkJWkybOqGR6H6xvpMqcn
+OzcE0JyrZMmbWVSe1df5ZUEMCBOOLpiSMUzYJ1lL6Be2AlZ0qL0xXerRKuQMU1PY
+gWsc0m8UeCvo5uwvF1jCzhpJk0At7YW+qp4VS0WUPOVFGoR+EtrkuQMBnsVmCw69
+vBIG7nGc5lfQWGFLz/AhH7564HD3BAH6SPRMAQA0eEAADTZYzmCHcPEERrfRYEuA
+ErglVCTqLDNVAO6R6NR/KCSQnAN0afjHSEJRQchuauhgiWmv6VWGgC38gRlAEeH1
+01x2+fXQE7T0NVJ1b5SFQYhLOAllAksaWEY30WiHXSykxRCdM5oVQJYFCuCCmQTn
+2cTVeqB9poSTEFIBQIuN2bBJIlh8OQIIAdhwAJ17ZqCjNYEWaugHQ/516KKMUiDA
+ATxU2eiklFZq6aWYLhoBADs=
+
+------------EGTpnrSy12d6SWxMX9Mroa
+Content-Disposition: inline; filename=blank.gif
+Content-Type: image/gif; name=blank.gif
+Content-Location: http://www.sql.ru/images/blank.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhCAANAIAAAP///////yH5BAEAAAEALAAAAAAIAA0AQAIIjI+py+0PYywA
+Ow==
+
+------------EGTpnrSy12d6SWxMX9Mroa
+Content-Disposition: inline; filename=lvl.gif
+Content-Type: image/gif; name=lvl.gif
+Content-Location: http://www.sql.ru/images/lvl.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhCgAKAAAAACH5BAEAAAEALAAAAAAKAAoAgAAAAAAAAAIQjI+poMcdXlwG
+SGdt0xuqAgA7
+------------EGTpnrSy12d6SWxMX9Mroa
+Content-Disposition: inline; filename=top100.gif
+Content-Type: image/gif; name=top100.gif
+Content-Location: http://counter.rambler.ru/top100.cnt?236431
+Content-Transfer-Encoding: Base64
+
+R0lGODdhUQA/APIAAAAAYPj8+MjMyDAwmGBkmMjM+GBkyAAAACwAAAAAUQA/AAAD
+/gi63P4wyklZuDjrzbv/YBgoYmmeaEZ2wuASaVYAQ5EJBGGXriCuG4IjdhECdheB
+YlCaAUpAzQOJMlKdT5HhCM1qsC2FoSgs+MgDgWCmCxi3uYCSRj76CAYYYaDwrfEw
+HFEYcwA4CmYOPnwQBUZGADpLIww1jAsYWH2CXjILWJQNaRIDbwxGpUsLW5WZC3wd
+g0mfC5A2tQuFhVZuCpCMBXyWvhu1HrIBoK+YAYzOurhcTs60ZqFUSZCxnYSYqJeX
+qNB9y4hLjARhYYYaOLacHKComtQ040+XvnM1Du+eDNguICvUi0QwGtGO0DIYLhkm
+TWMYnXFlDB6RGBPjZbxI/omjx48fkIEceVEkyZMnTKJcCUIly5fFKsicSbOmzZs4
+c+rcybOnz59AIQhDOBTn0KIA8uzJ5ysYJJ3HcgY5QmXNpyuFcHpgSjNIwFkbKWrt
+4CyHCwelcgDM+DXTB641kWS1lgRLGxnobmQoJQNvhqc3J2L5qiTQhjmGk/1NTCUO
+BsA25SLyQFdOYzpuMfAl9JfJ451InCApk/kCn9CR+j5mvPgv6G5cLgSbmLHG6NSc
+CV25kRFyTcHEyKr+nPju4TQdNOGUvGnqcIeYi3huJyQdp5061tAzw52RjALgIekA
+v4679gZq1lgNKlMF+/cz3cOfL8E8/fv48+vfz/8968z/IbgEIEwCDshSgQaihOBL
+RIXF0YIHfnKSS47kcMYf1tWlnmXgZbKhQLXQVWE6Z3BnQwF5bENZPnr0U5AdFkB2
+SwM2cDWjKCrGw1QeEKjVBxapTKEIXIbAleMGQJ5Xy1O2FHKWL77ZsYsjn4CzRlQd
+iIfBKyCqggiQDKyHUC5yfFLdDpe0tSU3sEFJD42vgJOmciFmpQYbobATEpsYsLIK
+nX1kFWaYQDJ1yANPxoblisasI6EcTNWYiyYvsgMZDJc46J4IlWmIJHm6baheaB8m
+A15VnR6ZYIIQrvpRq64+yGesEdJqYH/9JQAAOw==
+
+------------EGTpnrSy12d6SWxMX9Mroa
+Content-Disposition: inline; filename=banner-88x31-rambler-gray2.gif
+Content-Type: image/gif; name=banner-88x31-rambler-gray2.gif
+Content-Location: http://top100-images.rambler.ru/top100/banner-88x31-rambler-gray2.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhWAAfALMAAISEhIuLi5WVlZubm6Ojo6urq7W1tb29vcPDw83NzdPT093d
+3ePj4+3t7fT09P7+/iH5BAAAAAAALAAAAABYAB8AAAT/EMhJq7046833+2AojmRp
+nmhaSo/hvnAsz3Rt2wUhBFMgEAXag3UoGo/IpHLJbC4Ng83AkBwCHoisdsvter/g
+sJfA4wQIXCtWzG67w4QOBa1VJwoARCIB0An2An+AAAd7e1EAZxUHhHt9jIWMf4EJ
+jAWGe3Fyc4ZqCgoBAwoGAAmBn6cKfACiqgEBCaqVUUaEnwAFkKAAAgqUrJ/BpJsV
+Bp9qCwukCQEFC4HJ0AtkpArKpcnZeMkIAAZZuN0IBj4Cz4EE2dxlCCKEDw6kBCDd
+iQgLyMmhAMlxBQWhkuFa4G3BNnUG+S2oN6GAuAAHBgxYgOieOjwSfiR4QIDAAI4F
+/x4MmNexhQRnahio7FZApUGJrBhIihJAJgAFKnOSUskngUpvfAYIYCCR6AA8OFXu
+otBOQtMrB0gGwCIhgAI1DRpcW5C1awOJXwW4wOMzkaGspLL2zApUQoKvA+A2CMQg
+K6MKT59imcfAwdwJB7A2iHPAa9eiebriasBAkwC0ALIquMnWWJ+sYMEyuNwAI1Mr
+eqM+iFohJAsHqFOrXs26tevXsFEj+izhIxWRJC18ZKGit2/fZWg7hSePo4WpLIgp
+X07hA3MMap5Ll+PgQfDpyK9M366hgUgLBRwQJFC9HnmqFHZrp3BgwSjl94ZJSDYb
+w8T6N01SCK8VgAMEUzHyX/+AFBgQ3QTtgHCXHPgwdIVxGuTG3gOr9DDRNMa5l5t7
+FGyU3ATl4UOQN+NMgAY5ByAgAD8UlvhgHAJkAWMWDkmlhQAfNXDdfBjG0U+GIybi
+3Ye8EWBgNwyAwEAzIFQHjzkP4EPhiyHRMw8IZ1gFgo+jWfCjjwpsOJkEgR3Im5QH
+GPjfBwaI6B1XWOCTQIIfcZRkLA909kECmgCQZGc8GMjAihQI5EACHwmIaJe8JGnm
+gwhctdADmzVoaZxYXAXgB1cS4N0BDDBzZQUTwVPGVRXy6E15EhjAqlsPXEUkpO1g
++MGl92CKQJUfODAVRwku4AADVVawgKOaeMqocoEN9uhYB1lEuWqUuuKaR3UUvXht
+rCVZMQEICwRn4LJylEnKo9yla0GZpnTwxwd3oavuvK16J9OOFED0p3zy0jsvAVfl
+mQAUPIRiwFsfhNkcb7817PDDvfkrscQRAAA7
+------------EGTpnrSy12d6SWxMX9Mroa--

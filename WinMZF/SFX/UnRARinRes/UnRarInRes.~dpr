@@ -1,0 +1,14 @@
+program UnRarInRes;
+
+uses
+  Forms,
+  Unit1 in 'Unit1.pas' {dlgExtract},
+  UnRAR in 'UnRAR.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TdlgExtract, dlgExtract);
+  Application.Run;
+end.

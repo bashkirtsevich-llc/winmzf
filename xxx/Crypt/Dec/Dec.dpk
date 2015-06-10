@@ -1,0 +1,48 @@
+package Dec;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'Delphi Encryption Compendium Part I-III'}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  vcl,
+  designide,
+  vclactnband,
+  vclx;
+
+contains
+  Cipher1 in 'Source\Cipher1.pas',
+  Cipher in 'Source\Cipher.pas',
+  Compress in 'Source\Compress.pas',
+  DECConst in 'Source\DECConst.pas',
+  DECReg in 'Source\DECReg.pas',
+  DECUtil in 'Source\DECUtil.pas',
+  Hash in 'Source\Hash.pas',
+  HCMngr in 'Source\HCMngr.pas',
+  OTPass in 'Source\OTPass.pas',
+  RFC2289 in 'Source\RFC2289.pas',
+  RNG in 'Source\Rng.pas';
+
+end.

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{63b66905-2b55-4f4c-95a7-b1195aaa4abc}</ProjectGuid>
+    <MainSource>WinMZF.dpr</MainSource>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>BIN\WinMZF.exe</DCC_DependencyCheckOutputName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_ExeOutput>BIN</DCC_ExeOutput>
+    <DCC_DcuOutput>UNITS</DCC_DcuOutput>
+    <DCC_ObjOutput>UNITS</DCC_ObjOutput>
+    <DCC_HppOutput>UNITS</DCC_HppOutput>
+    <DCC_Define>RELEASE</DCC_Define>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_ExeOutput>BIN</DCC_ExeOutput>
+    <DCC_DcuOutput>UNITS</DCC_DcuOutput>
+    <DCC_ObjOutput>UNITS</DCC_ObjOutput>
+    <DCC_HppOutput>UNITS</DCC_HppOutput>
+    <DCC_Define>DEBUG</DCC_Define>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType>VCLApplication</Borland.ProjectType>
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><VersionInfo><VersionInfo Name="IncludeVerInfo">True</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">1</VersionInfo><VersionInfo Name="MinorVer">3</VersionInfo><VersionInfo Name="Release">4</VersionInfo><VersionInfo Name="Build">0</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">1033</VersionInfo><VersionInfo Name="CodePage">1252</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName">MADMAN Software</VersionInfoKeys><VersionInfoKeys Name="FileDescription">MZF-LZMA Archiver</VersionInfoKeys><VersionInfoKeys Name="FileVersion">1.3.4.0</VersionInfoKeys><VersionInfoKeys Name="InternalName">WinMZF</VersionInfoKeys><VersionInfoKeys Name="LegalCopyright">MADMAN Software</VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks">MADMAN Software</VersionInfoKeys><VersionInfoKeys Name="OriginalFilename">WinMZF.exe</VersionInfoKeys><VersionInfoKeys Name="ProductName">WinMZF</VersionInfoKeys><VersionInfoKeys Name="ProductVersion">1.3.4.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Source><Source Name="MainSource">WinMZF.dpr</Source></Source></Delphi.Personality><ModelSupport>False</ModelSupport></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="WinMZF.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="About_u.pas">
+      <Form>dlgAbout</Form>
+    </DCCReference>
+    <DCCReference Include="Add_u.pas">
+      <Form>dlgAddFiles</Form>
+    </DCCReference>
+    <DCCReference Include="Config_u.pas">
+      <Form>dlgConfig</Form>
+    </DCCReference>
+    <DCCReference Include="Convert_u.pas">
+      <Form>dlgConvert</Form>
+    </DCCReference>
+    <DCCReference Include="EncodeDecode_u.pas">
+      <Form>dlgEncodeDecode</Form>
+    </DCCReference>
+    <DCCReference Include="EncodeProgress_u.pas">
+      <Form>dlgOperationsProgress</Form>
+    </DCCReference>
+    <DCCReference Include="Extract_u.pas">
+      <Form>dlgExtract</Form>
+    </DCCReference>
+    <DCCReference Include="Favorite_u.pas">
+      <Form>dlgFavorite</Form>
+    </DCCReference>
+    <DCCReference Include="FileInfo_u.pas">
+      <Form>dlgFileInfo</Form>
+    </DCCReference>
+    <DCCReference Include="FindResult_u.pas">
+      <Form>dlgSearchResults</Form>
+    </DCCReference>
+    <DCCReference Include="Info_u.pas">
+      <Form>dlgInfo</Form>
+    </DCCReference>
+    <DCCReference Include="Main_u.pas">
+      <Form>frmMain</Form>
+    </DCCReference>
+    <DCCReference Include="MakeSFX_u.pas">
+      <Form>dlgMakeSFX</Form>
+    </DCCReference>
+    <DCCReference Include="OverWrite_u.pas">
+      <Form>dlgOverWrite</Form>
+    </DCCReference>
+    <DCCReference Include="Progress_u.pas">
+      <Form>dlgProgress</Form>
+    </DCCReference>
+    <DCCReference Include="Report_u.pas">
+      <Form>wndMessages</Form>
+    </DCCReference>
+    <DCCReference Include="Search_u.pas">
+      <Form>dlgFindConfig</Form>
+    </DCCReference>
+    <DCCReference Include="SeletFolder_u.pas">
+      <Form>dlgSelectFolder</Form>
+    </DCCReference>
+    <DCCReference Include="SKinEngine\Constructor_u.pas" />
+    <DCCReference Include="TestArchive_u.pas">
+      <Form>dlgTestArchive</Form>
+    </DCCReference>
+    <DCCReference Include="ThrdCopy_u.pas" />
+    <DCCReference Include="ThrdDelete_u.pas" />
+    <DCCReference Include="ThrdEncode_u.pas" />
+    <DCCReference Include="Tips_u.pas">
+      <Form>dlgTips</Form>
+    </DCCReference>
+  </ItemGroup>
+</Project>

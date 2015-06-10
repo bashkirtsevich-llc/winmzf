@@ -1,0 +1,49 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{adbd3da0-8739-4978-bc6f-cc4bbc61548a}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup />
+  <ProjectExtensions>
+    <Borland.Personality>Default.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+  <BorlandProject xmlns=""> <Default.Personality> </Default.Personality> </BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Target Name="def_mzf">
+    <MSBuild Projects="def_mzf.dproj" Targets="" />
+  </Target>
+  <Target Name="def_mzf:Clean">
+    <MSBuild Projects="def_mzf.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="def_mzf:Make">
+    <MSBuild Projects="def_mzf.dproj" Targets="Make" />
+  </Target>
+  <Target Name="WinMZF">
+    <MSBuild Projects="WinMZF.dproj" Targets="" />
+  </Target>
+  <Target Name="WinMZF:Clean">
+    <MSBuild Projects="WinMZF.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="WinMZF:Make">
+    <MSBuild Projects="WinMZF.dproj" Targets="Make" />
+  </Target>
+  <Target Name="UnMZF">
+    <MSBuild Projects="UnMZF.dproj" Targets="" />
+  </Target>
+  <Target Name="UnMZF:Clean">
+    <MSBuild Projects="UnMZF.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="UnMZF:Make">
+    <MSBuild Projects="UnMZF.dproj" Targets="Make" />
+  </Target>
+  <Target Name="Build">
+    <CallTarget Targets="def_mzf;WinMZF;UnMZF" />
+  </Target>
+  <Target Name="Clean">
+    <CallTarget Targets="def_mzf:Clean;WinMZF:Clean;UnMZF:Clean" />
+  </Target>
+  <Target Name="Make">
+    <CallTarget Targets="def_mzf:Make;WinMZF:Make;UnMZF:Make" />
+  </Target>
+</Project>

@@ -1,0 +1,1 @@
+RC6Test.exe e 1.txt 2.txt Hello

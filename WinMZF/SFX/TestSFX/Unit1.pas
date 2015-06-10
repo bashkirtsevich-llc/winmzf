@@ -1,0 +1,97 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ZLib, ExtDlgs;
+
+type TFileType=(ftMZF,ftZip,ftRar,ftZoo,ftBH,ftGZip,
+                ftLha,ftCab,ftTar,ftACE2,ftJar,ftArc,
+                ftArj,ftPKG5,ft7Z,ftAnyFile);
+
+type
+  TSFXhead=packed record
+    Signature:Array[0..2] Of Char;
+    Vendor:Array[0..5] Of Char;
+    ArchType:TFileType;
+    WndCaption:ShortString;
+    ExtractDir:ShortString;
+  end;
+
+type
+  TForm1 = class(TForm)
+    edSource: TEdit;
+    btnBrows: TButton;
+    edDest: TEdit;
+    btnConvert: TButton;
+    dlgOpen: TOpenDialog;
+    gbInfo: TGroupBox;
+    lbCaption: TLabel;
+    edCaption: TEdit;
+    lbExtractDir: TLabel;
+    edExtractDir: TEdit;
+    procedure btnBrowsClick(Sender: TObject);
+    procedure btnConvertClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+const
+  Sign='MSi';
+  VID='MADMAN';
+
+implementation
+
+{$R *.dfm}
+
+procedure CompressStream(inStream, outStream :TStream);
+begin
+ with TCompressionStream.Create(TCompressionLevel(3), outStream) do
+  try
+   CopyFrom(inStream, inStream.Size);
+  finally
+   Free;
+  end;
+end;
+
+procedure TForm1.btnBrowsClick(Sender: TObject);
+begin
+  If Not dlgOpen.Execute Then Exit;
+  edSource.Text:=dlgOpen.FileName;
+  edDest.Text:=changeFileExt(edSource.Text,'.exe');
+end;
+
+procedure TForm1.btnConvertClick(Sender: TObject);
+var ModuleStream:TFileStream;
+    ArchiveStream:TFileStream;
+    SFXStream:TMemoryStream;
+    SFXHead:TSFXhead;
+    Temp:TStream;
+    z:array[0..2]of char; 
+begin
+  SFXHead.Signature:=Sign;
+  SFXHead.Vendor:=VID;
+  SFXHead.ArchType:=ftMZF;
+  SFXHead.WndCaption:=edCaption.Text;
+  SFXHead.ExtractDir:=edExtractDir.Text;
+  SFXStream:=TMemoryStream.Create;
+  ModuleStream:=TFileStream.Create(ExtractFileDir(Application.ExeName)+'\MZF.exe',fmOpenRead);
+  SFXStream.CopyFrom(ModuleStream,ModuleStream.Size);
+  ModuleStream.Free;
+  SFXStream.Write(SFXHead,SizeOf(TSFXHead));
+  ArchiveStream:=TFileStream.Create(edSource.Text,fmOpenRead);
+  SFXStream.CopyFrom(ArchiveStream,ArchiveStream.Size);
+  ArchiveStream.Free;
+  SFXStream.SaveToFile(edDest.Text);
+  SFXStream.Free;
+  ShowMessage('Done!');
+  close;
+end;
+
+end.

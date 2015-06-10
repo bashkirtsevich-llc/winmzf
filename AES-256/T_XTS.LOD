@@ -1,0 +1,23 @@
+Test T_XTS for all win32 compilers  
+ 
+Results for fpc -B -dUSEDLL 
+ 
+Results for call fpc22 -B -dUSEDLL 
+ 
+Results for vpc -b  -dUSEDLL 
+ 
+Results for D:\DMX\M2\DCC32.EXE -b -dUSEDLL 
+ 
+Results for D:\DMX\M3\DCC32.EXE -b -dUSEDLL 
+ 
+Results for D:\DMX\M4\DCC32.EXE -b -dUSEDLL 
+ 
+Results for D:\DMX\M5\DCC32.EXE -b -dUSEDLL 
+ 
+Results for D:\DMX\M6\DCC32.EXE -b -dUSEDLL 
+ 
+Results for D:\DMX\M7\DCC32.EXE -b -dUSEDLL 
+ 
+Results for D:\DMX\M9\DCC32.EXE -b -dUSEDLL 
+ 
+Results for D:\DMX\M10\DCC32.EXE -b -dUSEDLL 

@@ -1,0 +1,42 @@
+package MZF;
+
+{$R *.res}
+{$R 'Viewer_u.dcr'}
+{$R 'Compress_u.dcr'}
+{$R 'Decompress_u.dcr'}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  vcl;
+
+contains
+  Messages_u in 'Messages_u.pas',
+  Viewer_u in 'Viewer_u.pas',
+  Advanced in 'Advanced.pas',
+  Compress_u in 'Compress_u.pas',
+  Crc32 in 'CRC32.pas',
+  Decompress_u in 'Decompress_u.pas';
+
+end.

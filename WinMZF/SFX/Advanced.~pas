@@ -1,0 +1,473 @@
+(*
+
+  Copyright...2008...MADMAN
+      ___           ___           ___           ___           ___           ___
+     /\__\         /\  \         /\  \         /\__\         /\  \         /\__\
+    /::|  |       /::\  \       /::\  \       /::|  |       /::\  \       /::|  |
+   /:|:|  |      /:/\:\  \     /:/\:\  \     /:|:|  |      /:/\:\  \     /:|:|  |
+  /:/|:|__|__   /::\~\:\  \   /:/  \:\__\   /:/|:|__|__   /::\~\:\  \   /:/|:|  |__
+ /:/ |::::\__\ /:/\:\ \:\__\ /:/__/ \:|__| /:/ |::::\__\ /:/\:\ \:\__\ /:/ |:| /\__\
+ \/__/~~/:/  / \/__\:\/:/  / \:\  \ /:/  / \/__/~~/:/  / \/__\:\/:/  / \/__|:|/:/  /
+       /:/  /       \::/  /   \:\  /:/  /        /:/  /       \::/  /      |:/:/  /
+      /:/  /        /:/  /     \:\/:/  /        /:/  /        /:/  /       |::/  /
+     /:/  /        /:/  /       \::/__/        /:/  /        /:/  /        /:/  /
+     \/__/         \/__/         ~~            \/__/         \/__/         \/__/
+*)
+
+
+unit Advanced;
+
+interface
+
+uses Classes,ComCtrls,SysUtils,Windows,ShellApi,ShlObj,ClipBrd,
+     Messages_u,AES_256_u,
+     MAD7_u,RC5,RC6,IDEA, SeletFolder_u, Forms,
+     Controls, Registry;
+
+Type TReWriteMode=(omRewrite,omSkip,omOverwriteAll,omSkipAll,omRename,omUnknown);
+Type TEncodeAlgorithm=(eaAES256,eaMAD7,eaIDEA{,eaRC5,eaRC6});
+
+Type TArcHead=Packed Record
+    Siganture:Packed Array[0..2]Of Char;
+    Version:Packed Array[0..2]Of Char;
+    //Vendor:Array[0..11]of Char;
+  End;
+
+Type TArcConfig=Packed Record
+    EncodeHead,EncodeFile:Boolean;
+    //EncodeMode:TEncodeMode;
+    UseComment:Boolean;
+    EncodeAlgorithm:TEncodeAlgorithm;
+  End;
+
+Type TFileHead=Packed Record
+    Attr:Word;
+    CRC:LongWord;
+    Size:LongWord;
+    PackedSize:LongWord;
+    FileCreateDate:TDateTime;
+    FileModifyDate:TDateTime;
+    FileOpenDate:TDateTime;
+    {DirCreateDate:TDateTime;
+    DirModifyDate:TDateTime;
+    DirAccessDate:TDateTime;}
+    {FileName:ShortString;
+    Path:ShortString;}
+    LongFileName:WideString;
+  End;
+  
+type
+  TSystemPath = (spDesktop, spStartMenu,
+    spPrograms, spStartup, spPersonal, spAppData,
+    spFonts, spSendTo, spRecent, spFavorites, spCache,
+    spCookies, spHistory, spNetHood, spPrintHood,
+    spTemplates, spLocADat, spWindRoot, spWindSys,
+    spTempPath, spRootDir, spProgFiles, spComFiles,
+    spConfigPath, spDevicePath, spMediaPath, spWallPaper);
+
+
+Const
+  Signature='MZF';
+  Vendor='M.A.D.M.A.N.';
+  Version='2.4';
+
+  Function CheckHead(Var Head:TArcHead):Boolean;
+  Function GetPercentDone(FMinValue,FCurValue,FMaxValue:LongWord): Byte;
+  Procedure MakeDir(Path:string);
+  Function TextInList(Text:String;List:TStringList):Boolean;
+  Function SetFileDateTime(const FileName:string;CreationTime,
+                              LastWriteTime,LastAccessTime:TDateTime;
+                              UpdateModifyTime,UpdateAccessTime:Boolean):boolean;
+  Procedure ShellExecuteFile(Handle:hWnd;FileName:String;WaitForClose:Boolean);
+  function ReadWideString(Stream:TStream): WideString;
+  Procedure DecodeStream(InStream,OutStream:TStream;Password:String;Algorithm:TEncodeAlgorithm);
+  procedure RemoveFileTree(const Path: string);
+  function FileMaskEquate(F, M: string): boolean;
+  procedure SearchDir(Dir,Ext: string;Var List:TStringList);
+  function GetSystemPath(SystemPath: TSystemPath): string;
+  function NameInMask(Mask,Ext:String):Boolean;
+  procedure FillListWithMask(Var List:TStringList;Mask:String);
+  function GetSelectedDir:String;
+  function GetAttributesAsString(Attr:Word):String;
+
+implementation
+
+function GetAttributesAsString(Attr:Word):String;
+Begin
+  Result:='';
+  If (Attr and FILE_ATTRIBUTE_READONLY) <> 0 Then Result:=Result+'R';
+  If (Attr and FILE_ATTRIBUTE_HIDDEN) <> 0 Then Result:=Result+'H';
+  If (Attr and FILE_ATTRIBUTE_SYSTEM) <> 0 Then Result:=Result+'S';
+  If (Attr and FILE_ATTRIBUTE_DIRECTORY) <> 0 Then Result:=Result+'D';
+  If (Attr and FILE_ATTRIBUTE_ARCHIVE) <> 0 Then Result:=Result+'A';
+  If (Attr and FILE_ATTRIBUTE_NORMAL) <> 0 Then Result:=Result+'N';
+  If (Attr and FILE_ATTRIBUTE_TEMPORARY) <> 0 Then Result:=Result+'T';
+  If (Attr and FILE_ATTRIBUTE_COMPRESSED) <> 0 Then Result:=Result+'C';
+  If (Attr and FILE_ATTRIBUTE_OFFLINE) <> 0 Then Result:=Result+'O';
+End;
+
+procedure FillListWithMask(Var List:TStringList;Mask:String);
+var _Pos:Word;
+begin
+  if Mask[Length(Mask)]<>';' then Mask:=Mask+';';
+  //delete(s,1,1);
+  while Pos(';',Mask)<>0 do
+    begin
+      _Pos:=pos(';',Mask);
+      List.Add(Copy(Mask,1,_Pos-1));
+      Delete(Mask,1,_Pos);
+    end;
+end;
+
+function FileMaskEquate(F, M: string): boolean;
+var
+  Fl, Ml: integer; // length of file name and mask
+  Fp, Mp: integer; // pointers
+begin
+  F := UpperCase(F);
+  M := UpperCase(M);
+  result := true;
+  Fl := length(F);
+  Ml := length(M);
+  Fp := 1;
+  Mp := 1;
+  while Mp <= Ml do
+  begin // wildcard
+    case M[Mp] of //
+      '?':
+        begin // if one any char
+          inc(Mp); // next char of mask
+          inc(Fp); // next char of file name
+        end; //
+      '*':
+        begin // if any chars
+          if Mp = Ml then
+            exit; // if last char in mask then exit
+          if M[Mp + 1] = F[Fp] then
+          begin // if next char in mask equate char in
+            Inc(Mp); // file name then next char in mask and
+          end
+          else
+          begin // else
+            if Fp = Fl then
+            begin // if last char in file name then
+              result := false; // function return false
+              exit; //
+            end; // else, if not previous, then
+            inc(Fp); // next char in file name
+          end; //
+        end; //
+    else
+      begin // other char in mask
+        if M[Mp] <> F[Fp] then
+        begin // if char in mask not equate char in
+          result := false; // file name then function return
+          exit; // false
+        end; // else
+        if (Mp=Ml) and (Fp<>Fl) then begin
+        Result:=false;
+        exit;
+       end;
+        inc(Fp); // next char of mask
+        inc(Mp); // next char of file name
+      end //
+    end;
+  end;
+end;
+
+procedure SearchDir(Dir,Ext: string;Var List:TStringList);
+var
+  SR: TSearchRec;
+  FindRes: Integer;
+begin
+  FindRes := FindFirst(Dir + '*.*', faAnyFile, SR);
+       while FindRes = 0 do
+          begin
+            if ((SR.Attr and faDirectory) = faDirectory) and
+            ((SR.Name = '.') or (SR.Name = '..')) then
+               begin
+                 FindRes := FindNext(SR);
+                 Continue;
+               end;
+            if ((SR.Attr and faDirectory) = faDirectory) then
+              begin
+                SearchDir(Dir + SR.Name + '\',Ext,List);
+                FindRes := FindNext(SR);
+                Continue;
+              end;
+            //Files.Add(Dir + SR.Name);//Add to list
+          if FileMaskEquate(SR.Name, Ext) = true then begin
+             List.Add(Dir+SR.Name);
+            end;
+            //showmessage(dir+sr.Name);
+            FindRes := FindNext(SR);
+          end;
+  Windows.FindClose(FindRes);
+end;
+
+function NameInMask(Mask,Ext:String):Boolean;
+var Index:Word;
+    Temp:String;
+begin
+  If Mask[Length(Mask)]<>';' Then Mask:=Mask+';';
+  Index:=1;
+  While Pos(';',Mask)<>0 Do
+    Begin
+      Temp:=Copy(Mask,1,Pos(';',Mask)-1);
+      Delete(Mask,1,Pos(';',Mask));
+      If FileMaskEquate(ext,temp) Then
+        Begin
+          Result:=True;
+          Exit;
+        End;
+    End;
+  Result:=False;
+end;
+
+function GetSystemPath(SystemPath: TSystemPath): string;
+var
+  ph: PChar;
+begin
+  with TRegistry.Create do
+    try
+      RootKey := HKEY_CURRENT_USER;
+      OpenKey('\Software\Microsoft\Windows\CurrentVersion\' +
+        'Explorer\Shell Folders', True);
+      case SystemPath of
+        spDesktop: Result   := ReadString('Desktop');
+        spStartMenu: Result := ReadString('Start Menu');
+        spPrograms: Result  := ReadString('Programs');
+        spStartup: Result   := ReadString('Startup');
+        spPersonal: Result  := ReadString('Personal');
+        spAppData: Result   := ReadString('AppData');
+        spFonts: Result     := ReadString('Fonts');
+        spSendTo: Result    := ReadString('SendTo');
+        spRecent: Result    := ReadString('Recent');
+        spFavorites: Result := ReadString('Favorites');
+        spCache: Result     := ReadString('Cache');
+        spCookies: Result   := ReadString('Cookies');
+        spHistory: Result   := ReadString('History');
+        spNetHood: Result   := ReadString('NetHood');
+        spPrintHood: Result := ReadString('PrintHood');
+        spTemplates: Result := ReadString('Templates');
+        spLocADat: Result   := ReadString('Local AppData');
+        spWindRoot:
+          begin
+            GetMem(ph, 255);
+            GetWindowsDirectory(ph, 254);
+            Result := Strpas(ph);
+            Freemem(ph);
+          end;
+        spWindSys:
+          begin
+            GetMem(ph, 255);
+            GetSystemDirectory(ph, 254);
+            Result := Strpas(ph);
+            Freemem(ph);
+          end;
+        spTempPath:
+          begin
+            GetMem(ph, 255);
+            GetTempPath(254, ph);
+            Result := Strpas(ph);
+            Freemem(ph);
+          end;
+        spRootDir:
+          begin
+            GetMem(ph, 255);
+            GetSystemDirectory(ph, 254);
+            Result := (Copy(Strpas(ph), 1, 2));
+            Freemem(ph);
+          end;
+      end;
+      RootKey := HKEY_LOCAL_MACHINE;
+      OpenKey('\SOFTWARE\Microsoft\Windows\CurrentVersion', True);
+      case SystemPath of
+        spProgFiles: Result := ReadString('ProgramFilesDir');
+        spComFiles: Result := ReadString('CommonFilesDir');
+        spConfigPath: Result := ReadString('ConfigPath');
+        spDevicePath: Result := ReadString('DevicePath');
+        spMediaPath: Result := ReadString('MediaPath');
+        spWallPaper: Result := ReadString('WallPaperDir');
+      end;
+    finally
+      CloseKey;
+      Free;
+    end;
+{  if (Result <> '') and (Result[Length(Result)] <> '\') then
+    Result := Result + '\';}
+end;
+
+function GetSelectedDir:String;
+begin
+  Application.CreateForm(TdlgSelectFolder,dlgSelectFolder);
+  If dlgSelectFolder.ShowModal<>mrOk Then
+    Begin
+      Result:='';
+      dlgSelectFolder.Free;
+      Exit;
+    End;
+  Result:=dlgSelectFolder.edDestFolder.Text;
+  dlgSelectFolder.Free;
+end;
+
+procedure RemoveFileTree(const Path: string);
+var Found: integer;
+    SearchRec: TSearchRec;
+    FileName: string;
+begin
+  Found:= FindFirst(Path + '\*.*', faAnyFile, SearchRec);
+  while Found = 0 do
+  begin
+    if ((SearchRec.Attr and faDirectory) = faDirectory)
+    then
+      if (SearchRec.Name <> '.') and (SearchRec.Name <> '..')
+        then RemoveFileTree(Path+'\'+SearchRec.Name)
+      else
+    else
+    begin
+      FileName:= Path+'\'+SearchRec.Name+#0;
+      DeleteFile(PChar(FileName));
+    end;
+  Found:= FindNext(SearchRec);
+  end;
+  SysUtils.FindClose(SearchRec);
+  RemoveDir(Path);
+end;
+
+function ReadWideString(Stream:TStream): WideString;
+var
+  LLen: Integer;
+begin
+  if Stream.Read(LLen, SizeOf(LLen)) <> SizeOf(LLen) then
+    raise Exception.Create(rsInvalidStringLength);
+  SetLength(Result, LLen);
+  if LLen > 0 then
+    If Stream.Read(PWideChar(Result)^, LLen * SizeOf(WideChar)) <> (LLen * SizeOf(WideChar)) Then
+      Result:='';
+end;
+
+Procedure DecodeStream(InStream,OutStream:TStream;Password:String;Algorithm:TEncodeAlgorithm);
+Begin
+  Case Algorithm Of
+    eaAES256:AES256_DecodeStream(InStream,OutStream,Password);
+    eaMAD7:MAD7_DecodeStream(InStream,OutStream,Password);
+    eaIDEA:IDEA_DecryptCopy(OutStream,InStream,InStream.Size,Password);
+  End;
+End;
+
+Procedure ShellExecuteFile(Handle:hWnd;FileName:String;WaitForClose:Boolean);
+Var Info: TShellExecuteInfo;
+    ExitCode: DWord;
+Begin
+  FillChar(Info, SizeOf(Info), 0);
+  Info.cbSize := SizeOf(TShellExecuteInfo);
+  With Info Do
+    Begin
+      fMask := SEE_MASK_NOCLOSEPROCESS;
+      Wnd := Handle;
+      lpFile := PChar(FileName);
+      lpDirectory := PChar(extractfiledir(FileName));
+      nShow:=SW_SHOW;
+    End;
+  If ShellExecuteEx(@Info) Then
+    If WaitForClose Then
+      Repeat
+        Application.ProcessMessages;
+        GetExitCodeProcess(Info.hProcess, ExitCode);
+        Sleep(100);
+      Until (ExitCode <> STILL_ACTIVE) Or Application.Terminated;
+End;
+
+Function SetFileDateTime(const FileName:string;CreationTime,
+                              LastWriteTime,LastAccessTime:TDateTime;
+                              UpdateModifyTime,UpdateAccessTime:Boolean):boolean;
+var Z:dword;
+    P:PChar;
+    CT,LAT,LWT:TFileTime;
+    ST:TSystemTime;
+begin
+  If UpdateModifyTime Then LastWriteTime:=Date+Time;
+  If UpdateAccessTime Then LastAccessTime:=Date;
+  SetLastError(0);
+  GetMem(P,1024);
+  StrPLCopy(P,FileName,1024);
+  Result:=false;
+  Z:=CreateFile(P,GENERIC_WRITE,FILE_SHARE_READ,nil,OPEN_EXISTING,FILE_FLAG_SEQUENTIAL_SCAN,0);
+  if Z<>INVALID_HANDLE_VALUE then
+    begin
+      DateTimeToSystemTime(CreationTime,ST);
+      SystemTimeToFileTime(ST,CT);
+      LocalFileTimeToFileTime(CT,CT);
+      DateTimeToSystemTime(LastAccessTime,ST);
+      SystemTimeToFileTime(ST,LAT);
+      LocalFileTimeToFileTime(LAT,LAT);
+      DateTimeToSystemTime(LastWriteTime,ST);
+      SystemTimeToFileTime(ST,LWT);
+      LocalFileTimeToFileTime(LWT,LWT);
+      Result:=SetFileTime(Z,@CT,@LAT,@LWT);
+      CloseHandle(Z);
+    end;
+end;
+
+
+
+function CheckHead(Var Head:TArcHead):Boolean;
+begin
+  Result:=(Head.Siganture=Signature)And
+          (Head.Version=Version){And
+          (Head.Vendor=Vendor)};
+end;
+
+Procedure MakeDir(Path:string);
+var i,x:integer;
+    cur_dir:string;
+    RootDir:String;
+begin
+  RootDir:=Path[1]+Path[2]+Path[3];
+  SetCurrentDirectory(pchar(RootDir));
+  x:=1;
+  cur_dir:='';
+  if (Path[1]='\') then x:=2;
+  for i:=x to Length(Path) do
+   begin
+    if not (Path[i]='\')then
+      cur_dir:=cur_dir+Path[i];
+    if (Path[i]='\')or (i=length(Path)) then
+     begin
+      if not DirectoryExists(cur_dir) then
+        CreateDirectory(pchar(cur_dir),0);
+      SetCurrentDirectory(pchar(cur_dir));
+      cur_dir:='';
+     end;
+   end;
+end;
+
+function TextInList(Text:String;List:TStringList):Boolean;
+var Index:Integer;
+begin
+  If List.Count=0 Then
+    Begin
+      Result:=False;
+      Exit;
+    End;
+  For Index:=0 to List.Count-1 do
+    If UpperCase(Text)=UpperCase(List.Strings[Index]) Then
+      Begin
+        Result:=True;
+        Exit;
+      End Else Result:=False;
+end;
+
+function SolveForY(X, Z: LongWord): Byte;
+begin
+  if Z = 0 then Result := 0
+  else Result := Byte(Trunc( (X * 100.0) / Z ));
+end;
+
+function GetPercentDone(FMinValue,FCurValue,FMaxValue:LongWord): Byte;
+begin
+  Result := SolveForY(FCurValue - FMinValue, FMaxValue - FMinValue);
+end;
+
+end.
